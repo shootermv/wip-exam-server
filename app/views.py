@@ -15,7 +15,7 @@ def index(request):
     return HttpResponse('Hello World!')
 
 
-def test(request):
+def users(request):
     parsedData = []    
     response = client.api.users.search.get(q='shoo')
     for data in response.data:
@@ -24,6 +24,7 @@ def test(request):
         userData['screen_name'] = data['screen_name']
         parsedData.append(userData)
     return HttpResponse(json.dumps(parsedData))
+
 
 def profile(request):
     jsonList = []
