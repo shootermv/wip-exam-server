@@ -16,8 +16,9 @@ def index(request):
 
 
 def users(request):
-    parsedData = []    
-    response = client.api.users.search.get(q='shoo')
+    parsedData = []
+    term = request.GET.get('q', None) or 'a'
+    response = client.api.users.search.get(q=term)
     for data in response.data:
         userData = {}
         userData['id'] = data['id']
