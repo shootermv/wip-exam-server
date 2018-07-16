@@ -13,8 +13,6 @@ client = UserClient('TlE56fey9n1McJDevlQDzHTgT',
 
 # Create your views here.
 
-def index(request):
-    return HttpResponse('Hello World!')
 
 
 def users(request):
