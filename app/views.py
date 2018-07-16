@@ -30,7 +30,7 @@ def users(request):
 def statuses(request):
     parsedData = []
     screenName = request.GET.get('screenname', None) or 'a'
-    response = client.api.statuses.user_timeline.get(screen_name=screenName)
+    response = client.api.statuses.user_timeline.get(screen_name=screenName, count=50)
     for data in response.data:
         statusData = {}
         statusData['id'] = data['id_str']
