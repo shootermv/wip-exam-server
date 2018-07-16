@@ -106,11 +106,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-
-TWITTER_KEY = 'TlE56fey9n1McJDevlQDzHTgT'
-TWITTER_SECRET = 'hLgCCzGz4SAWNhKRQHnnD3wc5ulQ9LMcM7apm9l84FBemXII21'
-
-LOGIN_URL='/app/login'
-LOGOUT_URL='/app/logout'
-LOGIN_REDIRECT_URL='/'
-LOGOUT_REDIRECT_URL='/'
