@@ -11,10 +11,13 @@ idna==2.7
 oauthlib==2.1.0
 pbr==4.1.0
 pipenv==2018.6.25
+python-dotenv==0.8.2
 requests==2.19.1
 requests-oauthlib==1.0.0
 six==1.11.0
 stevedore==1.28.0
+twython==3.7.0
+twython-django==1.5.2
 urllib3==1.23
 virtualenv==16.0.0
 virtualenv-clone==0.3.0

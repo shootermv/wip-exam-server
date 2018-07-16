@@ -3,12 +3,15 @@ import json, ast
 from django.shortcuts import render, HttpResponse
 import requests
 from birdy.twitter import UserClient
+import os
+
+client = UserClient(os.getenv("CONSUMER_KEY"),
+                    os.getenv("CONSUMER_SECRET"),
+                    os.getenv("ACCESS_TOKEN"),
+                    os.getenv("ACCESS_TOKEN_SECRET"))
 
 
-client = UserClient('TlE56fey9n1McJDevlQDzHTgT',
-                   'hLgCCzGz4SAWNhKRQHnnD3wc5ulQ9LMcM7apm9l84FBemXII21',
-                    '17506920-4pvKThAPOPW6MUHNWGXO8QRCf6Hp17tq0cz9rE40f',
-                    'cfnQAK4yBDsgiaIlpIavRb9BbdudbAqzZ8fvWVx9W5PGf')
+
 
 def users(request):
     parsedData = []

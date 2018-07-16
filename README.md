@@ -1,5 +1,5 @@
-Django Rest Framework + React
-=============================
+Django Rest Framework + Tiwtter Birdy Client
+============================================
 
 
 To try it yourself, clone the repo and run:
