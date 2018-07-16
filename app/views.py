@@ -21,6 +21,8 @@ def users(request):
         userData = {}
         userData['id'] = data['id']
         userData['screen_name'] = data['screen_name']
+        userData['url'] = data['url']
+        userData['profile_image_url'] = data['profile_image_url']
         parsedData.append(userData)
 
     return HttpResponse(json.dumps(parsedData))
