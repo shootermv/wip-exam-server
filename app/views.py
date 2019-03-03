@@ -20,6 +20,7 @@ def users(request):
     for data in response.data:
         userData = {}
         userData['id'] = data['id']
+        userData['name'] = data['name']
         userData['screen_name'] = data['screen_name']
         userData['url'] = data['url']
         userData['profile_image_url'] = data['profile_image_url']
@@ -30,11 +31,21 @@ def users(request):
 def statuses(request):
     parsedData = []
     screenName = request.GET.get('screenname', None) or 'a'
-    response = client.api.statuses.user_timeline.get(screen_name=screenName, count=50)
-    for data in response.data:
-        statusData = {}
-        statusData['id'] = data['id_str']
-        statusData['text'] = data['text']
-        parsedData.append(statusData)
-    
+    maxId = request.GET.get('max_id', None)
+    # https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=twitterapi&count=200&page=2
+    print(maxId)
+    if maxId == "":
+        response = client.api.statuses.user_timeline.get(screen_name=screenName, count=200)
+        for data in response.data:
+            statusData = {}
+            statusData['id'] = data['id_str']
+            statusData['text'] = data['text']
+            parsedData.append(statusData)
+    else:
+        response = client.api.statuses.user_timeline.get(screen_name=screenName, max_id=maxId, count=50)
+        for data in response.data:
+            statusData = {}
+            statusData['id'] = data['id_str']
+            statusData['text'] = data['text']
+            parsedData.append(statusData)        
     return HttpResponse(json.dumps(parsedData))
